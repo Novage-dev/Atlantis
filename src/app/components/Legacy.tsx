@@ -49,7 +49,7 @@ export function Legacy() {
           whileInView={{ opacity: 1, x: 0 }}
           viewport={{ once: true, margin: "-100px" }}
           transition={{ duration: 1, ease: [0.16, 1, 0.3, 1] }}
-          className="relative h-[600px] w-full"
+          className="relative h-[600px] w-full order-2 md:order-1"
         >
           <div className="absolute top-0 left-0 w-full h-full bg-[var(--accent-gold)]/5 -translate-x-4 -translate-y-4 md:-translate-x-8 md:-translate-y-8 z-0" />
           <div className="relative z-10 w-full h-full overflow-hidden">
@@ -62,7 +62,7 @@ export function Legacy() {
         </motion.div>
 
         {/* Text Side */}
-        <div className="flex flex-col justify-center">
+          <div className="flex flex-col justify-center order-1 md:order-2">
           <motion.span 
             initial={{ opacity: 0, y: 20 }}
             whileInView={{ opacity: 1, y: 0 }}
