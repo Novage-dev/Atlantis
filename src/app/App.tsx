@@ -62,8 +62,8 @@ export default function App() {
           <Header theme={theme} toggleTheme={toggleTheme} />
           <main>
             <Hero theme={theme} imageSrc={HERO_IMAGE} />
-            <FeaturedResidences />
             <Legacy />
+            <FeaturedResidences />
             <Amenities />
             <Gallery />
             <Contact />

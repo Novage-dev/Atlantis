@@ -23,7 +23,7 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  const navLinks = ["Residences", "Legacy", "Amenities", "Gallery", "Contact"];
+  const navLinks = ["Legacy", "Residences", "Amenities", "Gallery", "Contact"];
 
   return (
     <>

@@ -40,6 +40,7 @@ function Counter({ value, label }: { value: number; label: string }) {
 export function Legacy() {
   return (
     <section id="legacy" className="py-24 md:py-40 bg-[var(--bg-secondary)] relative overflow-hidden">
+      
       <div className="container mx-auto px-6 grid grid-cols-1 md:grid-cols-2 gap-16 md:gap-24 items-center">
         
         {/* Image Side */}
