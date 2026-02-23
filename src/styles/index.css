@@ -3,7 +3,7 @@
 @import './theme.css';
 
 .custom-contrast-with-blur {
-    filter: contrast(1.2) brightness(0.8) blur(1.3px) !important;
+    filter: contrast(1.2) brightness(0.8) !important;
 }
 
 .custom-scale-80p {
