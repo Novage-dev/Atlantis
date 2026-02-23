@@ -35,7 +35,7 @@ export function Footer() {
           </nav>
           
           <div className="flex flex-col md:flex-row gap-8 items-center text-[var(--text-secondary)] text-[10px] uppercase tracking-widest font-light opacity-60">
-             <span>© 2024 Atlantis Development</span>
+             <span>© 2026 Atlantis Development</span>
              <span className="hidden md:inline">•</span>
              <span>All Rights Reserved</span>
              <span className="hidden md:inline">•</span>

@@ -4,16 +4,17 @@ import { ImageWithFallback } from "./figma/ImageWithFallback";
 
 interface HeaderProps {
   theme: "dark" | "light";
+  imageSrc: string;
 }
 
 
-export function Hero({ theme }: HeaderProps) {
+export function Hero({ theme, imageSrc }: HeaderProps) {
   const { scrollY } = useScroll();
   const y = useTransform(scrollY, [0, 500], [0, 200]);
   const opacity = useTransform(scrollY, [0, 300], [1, 0]);
 
-  // image used for background
-  // https://images.unsplash.com/photo-1724218041680-a6b87c3c443e
+  // image used as hero section's background image
+  // https://images.unsplash.com/photo-1745613999710-1aaf60145502
 
   return (
     <section className="relative h-screen w-full overflow-hidden flex items-center justify-center">
@@ -24,7 +25,7 @@ export function Hero({ theme }: HeaderProps) {
       >
         <div className="absolute inset-0 bg-black/40 z-10" /> {/* Overlay for text contrast */}
         <ImageWithFallback
-          src="https://images.unsplash.com/photo-1745613999710-1aaf60145502"
+          src={imageSrc}
           alt="Luxury infinity pool ocean view sunset"
           className="w-full h-full object-cover custom-contrast-with-blur"
         />
