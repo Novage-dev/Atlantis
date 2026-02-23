@@ -1,5 +1,5 @@
 # ATLANTIS – Luxury Real Estate Showcase
-![Atlantis Preview](./public/Meta.pngg)
+![Atlantis Preview](./public/Meta.png)
 A high-end, ultra-minimal, and elegant luxury real estate website designed to showcase signature residences and amenities with a refined, editorial aesthetic. The website features smooth animations, a parallax hero section, and a premium golden-themed loading screen.
 
 ---
