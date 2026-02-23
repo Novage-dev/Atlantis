@@ -1,0 +1,61 @@
+@import "tailwindcss";
+
+@theme {
+  --font-serif: "Cormorant Garamond", serif;
+  --font-sans: "Inter", sans-serif;
+  
+  --color-gold-muted: #C9A962;
+  --color-gold-light: #E4D4A5;
+  --color-charcoal-deep: #0A0A0A;
+  --color-charcoal-surface: #111111;
+  --color-cream: #F9F7F2;
+  --color-cream-surface: #EFECE4;
+}
+
+@layer base {
+  :root {
+    --bg-primary: #0A0A0A;
+    --bg-secondary: #111111;
+    --text-primary: #F5F5F5;
+    --text-secondary: #888888;
+    --accent-gold: #C9A962;
+    --accent-light-gold: #d3b467;
+    --accent-gold-light: #E4D4A5;
+    --border-color: rgba(201, 169, 98, 0.2);
+  }
+
+  :root[data-theme="light"] {
+    --bg-primary: #F9F7F2;
+    --bg-secondary: #EFECE4;
+    --text-primary: #1A1A1A;
+    --text-secondary: #555555;
+    --accent-gold: #B89650;
+    --accent-gold-light: #D4C495;
+    --border-color: rgba(184, 150, 80, 0.2);
+  }
+
+  body {
+    @apply font-sans antialiased transition-colors duration-700 ease-in-out;
+    background-color: var(--bg-primary);
+    color: var(--text-primary);
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    @apply font-serif;
+  }
+}
+
+@layer utilities {
+  .text-gold {
+    color: var(--accent-gold);
+  }
+  .bg-gold {
+    background-color: var(--accent-gold);
+  }
+  .border-gold {
+    border-color: var(--border-color);
+  }
+  .gold-glow {
+    box-shadow: 0 0 20px rgba(201, 169, 98, 0.1);
+  }
+}
