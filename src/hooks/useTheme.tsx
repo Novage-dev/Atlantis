@@ -1,6 +1,6 @@
 import React from 'react';
 
-// Use this hook to manage the theme
+// hook to manage the theme
 export function useTheme() {
   const [theme, setTheme] = React.useState<'dark' | 'light'>('dark');
 

@@ -29,8 +29,7 @@ A high-end, ultra-minimal, and elegant luxury real estate website designed to sh
 ### **1. Clone the Repository**
 
 ```bash
-git clone <your-repo-url>
-cd <your-project-folder>
+git clone https://github.com/novage-dev/atlantis
 ```
 
 ### **2. Install Dependencies**
