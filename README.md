@@ -80,7 +80,7 @@ src/
 Website developed and maintained by:
 
 **Novage Developments**
-Lead Developer: Issachar Jobz
+Lead Developer: Yisakor Eyob, AKA Issachar Jobz (founder of Novage Developments)
 
 For development inquiries, contact the developer directly on their [Portfoilo site](https://yisakor.vercel.app/).
 
