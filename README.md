@@ -75,9 +75,14 @@ src/
 
 ---
 
-## **Author**
+## **Development**
+
+Website developed and maintained by:
 
 **Novage Developments**
+Lead Developer: Issachar Jobz
+
+For development inquiries, contact the developer directly on their [Portfoilo site](https://yisakor.vercel.app/).
 
 ---
 
