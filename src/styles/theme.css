@@ -22,6 +22,15 @@
     --accent-light-gold: #d3b467;
     --accent-gold-light: #E4D4A5;
     --border-color: rgba(201, 169, 98, 0.2);
+    --section-space: clamp(4.5rem, 7vw, 6.5rem);
+    --section-space-tight: clamp(3.75rem, 6vw, 5.75rem);
+    --luxury-ease: cubic-bezier(0.22, 1, 0.36, 1);
+    --luxury-shadow: 0 36px 90px -50px rgba(0, 0, 0, 0.75);
+    --luxury-shadow-soft: 0 26px 64px -44px rgba(0, 0, 0, 0.5);
+    --luxury-line: rgba(201, 169, 98, 0.32);
+    --luxury-surface: rgba(201, 169, 98, 0.08);
+    --luxury-spot: rgba(228, 212, 165, 0.1);
+    --luxury-noise: rgba(201, 169, 98, 0.07);
   }
 
   :root[data-theme="light"] {
@@ -32,6 +41,12 @@
     --accent-gold: #B89650;
     --accent-gold-light: #D4C495;
     --border-color: rgba(184, 150, 80, 0.2);
+    --luxury-shadow: 0 36px 90px -50px rgba(24, 20, 13, 0.38);
+    --luxury-shadow-soft: 0 24px 56px -40px rgba(24, 20, 13, 0.28);
+    --luxury-line: rgba(184, 150, 80, 0.36);
+    --luxury-surface: rgba(184, 150, 80, 0.1);
+    --luxury-spot: rgba(228, 212, 165, 0.14);
+    --luxury-noise: rgba(184, 150, 80, 0.08);
   }
 
   body {

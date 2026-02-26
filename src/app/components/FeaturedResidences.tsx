@@ -10,7 +10,7 @@ const residences = [
     sqft: "4,200 sq.ft",
     image: "https://images.unsplash.com/photo-1642976975710-1d8890dbf5ab?q=80&w=1080&auto=format&fit=crop",
     beds: 3,
-    baths: 3.5
+    baths: 3.5,
   },
   {
     id: 2,
@@ -19,7 +19,7 @@ const residences = [
     sqft: "6,500 sq.ft",
     image: "https://images.unsplash.com/photo-1758448756207-54505680d130?q=80&w=1080&auto=format&fit=crop",
     beds: 5,
-    baths: 6
+    baths: 6,
   },
   {
     id: 3,
@@ -28,58 +28,59 @@ const residences = [
     sqft: "3,100 sq.ft",
     image: "https://images.unsplash.com/photo-1745613999710-1aaf60145502?q=80&w=1080&auto=format&fit=crop",
     beds: 2,
-    baths: 2.5
-  }
+    baths: 2.5,
+  },
 ];
+
+const LUXURY_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
 
 export function FeaturedResidences() {
   return (
-    <section id="residences" className="py-24 md:py-32 px-6 bg-[var(--bg-primary)]">
+    <section id="residences" className="section-shell bg-[var(--bg-primary)] py-20 md:py-28 px-6">
       <div className="container mx-auto">
         <motion.div
-          initial={{ opacity: 0, y: 20 }}
-          whileInView={{ opacity: 1, y: 0 }}
-          viewport={{ once: true, margin: "-100px" }}
-          transition={{ duration: 0.8 }}
-          className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-end border-b border-[var(--border-color)] pb-8"
+          initial={{ opacity: 0, y: 56, scale: 0.95, filter: "blur(8px)" }}
+          whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+          viewport={{ once: false, margin: "-110px 0px -110px 0px", amount: 0.45 }}
+          transition={{ duration: 1.05, ease: LUXURY_EASE }}
+          className="mb-14 md:mb-20 flex flex-col md:flex-row justify-between items-end border-b border-[var(--border-color)] pb-7"
         >
           <div>
             <span className="block text-[var(--accent-gold)] text-sm uppercase tracking-[0.2em] mb-4">Curated Living</span>
             <h2 className="font-serif text-4xl md:text-6xl text-[var(--text-primary)]">Signature Residences</h2>
           </div>
           <div className="mt-8 md:mt-0">
-            <a href="#" className="text-[var(--text-secondary)] hover:text-[var(--accent-gold)] transition-colors duration-300 uppercase tracking-widest text-xs flex items-center gap-2 group">
+            <a
+              href="#"
+              className="text-[var(--text-secondary)] hover:text-[var(--accent-gold)] transition-colors duration-500 uppercase tracking-widest text-xs flex items-center gap-2 group"
+            >
               View All Listings
-              <ArrowUpRight className="w-4 h-4 transition-transform duration-300 group-hover:-translate-y-1 group-hover:translate-x-1" />
+              <ArrowUpRight className="w-4 h-4 transition-transform duration-500 group-hover:-translate-y-1 group-hover:translate-x-1" />
             </a>
           </div>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+        <div className="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-11">
           {residences.map((res, index) => (
             <motion.div
               key={res.id}
-              initial={{ opacity: 0, y: 40 }}
-              whileInView={{ opacity: 1, y: 0 }}
-              viewport={{ once: true, margin: "-50px" }}
-              transition={{ duration: 0.8, delay: index * 0.2 }}
-              className={`group cursor-pointer ${index === 1 ? 'md:mt-16' : ''}`}
+              initial={{ opacity: 0, y: 62, scale: 0.93, filter: "blur(8px)" }}
+              whileInView={{ opacity: 1, y: 0, scale: 1, filter: "blur(0px)" }}
+              viewport={{ once: false, margin: "-70px 0px -70px 0px", amount: 0.28 }}
+              transition={{ duration: 0.96, delay: index * 0.09, ease: LUXURY_EASE }}
+              className={`group cursor-pointer ${index === 1 ? "md:mt-12" : ""}`}
             >
-              <div className="relative overflow-hidden aspect-[3/4] mb-6">
-                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-500 z-10" />
-                <motion.div
-                  className="w-full h-full"
-                  whileHover={{ scale: 1.05 }}
-                  transition={{ duration: 0.8, ease: [0.16, 1, 0.3, 1] }}
-                >
+              <div className="relative overflow-hidden aspect-[3/4] mb-5 border border-[var(--border-color)] luxury-card">
+                <div className="absolute inset-0 bg-black/20 opacity-0 group-hover:opacity-100 transition-opacity duration-700 z-10" />
+                <motion.div className="w-full h-full" whileHover={{ scale: 1.03 }} transition={{ duration: 0.8, ease: LUXURY_EASE }}>
                   <ImageWithFallback
                     src={res.image}
                     alt={res.title}
-                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-105"
+                    className="w-full h-full object-cover transition-transform duration-700 ease-out group-hover:scale-[1.03]"
                   />
                 </motion.div>
-                
-                <div className="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-500 translate-y-4 group-hover:translate-y-0">
+
+                <div className="absolute bottom-6 left-6 z-20 opacity-0 group-hover:opacity-100 transition-all duration-700 translate-y-3 group-hover:translate-y-0">
                   <span className="text-white text-xs uppercase tracking-widest border border-white/30 px-3 py-1 bg-black/30 backdrop-blur-sm">
                     View Details
                   </span>
@@ -87,11 +88,13 @@ export function FeaturedResidences() {
               </div>
 
               <div className="relative">
-                <h3 className="font-serif text-2xl text-[var(--text-primary)] mb-2 group-hover:-translate-y-1 transition-transform duration-500">
+                <h3 className="luxury-card-title font-serif text-2xl text-[var(--text-primary)] mb-2 group-hover:-translate-y-1 transition-transform duration-700">
                   {res.title}
                 </h3>
-                <div className="flex justify-between items-center text-[var(--text-secondary)] text-sm font-light border-t border-[var(--border-color)] pt-3 mt-3 group-hover:border-[var(--accent-gold)] transition-colors duration-500">
-                  <span>{res.sqft} • {res.beds} Beds</span>
+                <div className="flex justify-between items-center text-[var(--text-secondary)] text-sm font-light border-t border-[var(--border-color)] pt-3 mt-3 group-hover:border-[var(--accent-gold)] transition-colors duration-700">
+                  <span>
+                    {res.sqft} / {res.beds} Beds
+                  </span>
                   <span className="font-medium text-[var(--text-primary)]">{res.price}</span>
                 </div>
               </div>

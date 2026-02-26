@@ -1,4 +1,4 @@
-import { motion, useScroll, useTransform } from "motion/react";
+import { motion } from "motion/react";
 import { Menu, X, Moon, Sun } from "lucide-react";
 import { useState, useEffect } from "react";
 
@@ -7,13 +7,11 @@ interface HeaderProps {
   toggleTheme: () => void;
 }
 
+const LUXURY_EASE: [number, number, number, number] = [0.22, 1, 0.36, 1];
+
 export function Header({ theme, toggleTheme }: HeaderProps) {
   const [isScrolled, setIsScrolled] = useState(false);
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
-  const { scrollY } = useScroll();
-
-  const headerOpacity = useTransform(scrollY, [0, 50], [0, 1]);
-  const headerY = useTransform(scrollY, [0, 50], [-20, 0]);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -29,14 +27,14 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
     <>
       <motion.header
         className={`fixed top-0 left-0 right-0 z-50 transition-all duration-500 ${isScrolled
-          ? "py-4 bg-[var(--bg-primary)]/80 backdrop-blur-md"
-          : "py-8 bg-transparent"
+          ? "py-3 bg-[var(--bg-primary)]/80 backdrop-blur-md border-b border-[var(--border-color)]"
+          : "py-6 bg-transparent"
           }`}
         initial={{ y: -100, opacity: 0 }}
         animate={{ y: 0, opacity: 1 }}
-        transition={{ duration: 0.8, ease: "easeOut" }}
+        transition={{ duration: 0.8, ease: LUXURY_EASE }}
       >
-        <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center custom-scale-80p">
+        <div className="container mx-auto px-6 lg:px-12 flex justify-between items-center">
           <a href="#" className="z-50 group">
             <h1
               className={`font-serif text-2xl md:text-3xl tracking-[0.2em] font-light transition-opacity duration-300 group-hover:opacity-70 ${!isScrolled ? "text-white" : "text-[var(--text-primary)]"
@@ -47,7 +45,7 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
           </a>
 
           <nav className="hidden lg:flex items-center space-x-12">
-            {navLinks.map((link, i) => (
+            {navLinks.map((link) => (
               <a
                 key={link}
                 href={`#${link.toLowerCase()}`}
@@ -103,7 +101,7 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
                 opacity: isMobileMenuOpen ? 1 : 0,
                 y: isMobileMenuOpen ? 0 : 20
               }}
-              transition={{ delay: 0.1 + i * 0.1, duration: 0.5 }}
+              transition={{ delay: 0.1 + i * 0.08, duration: 0.55, ease: LUXURY_EASE }}
             >
               {link}
             </motion.a>
@@ -112,7 +110,6 @@ export function Header({ theme, toggleTheme }: HeaderProps) {
           <motion.button
             onClick={() => {
               toggleTheme();
-              // Keep menu open to see change or close it? Let's keep it open but maybe close after a delay if desired. 
             }}
             className="mt-8 flex items-center space-x-2 text-[var(--text-secondary)] uppercase tracking-widest text-xs"
             initial={{ opacity: 0 }}

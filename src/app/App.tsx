@@ -8,9 +8,11 @@ import { Gallery } from "./components/Gallery";
 import { Contact } from "./components/Contact";
 import { Footer } from "./components/Footer";
 import { LoadingScreen } from "./components/Splash";
+import { GoldenBackground } from "./components/GoldenBackground";
+import { PrestigeStrip } from "./components/PrestigeStrip";
 
 export default function App() {
-  const [theme, setTheme] = useState<"dark" | "light">("light");
+  const [theme, setTheme] = useState<"dark" | "light">("dark");
 
   const [imageLoaded, setImageLoaded] = useState(false);
   const [minTimePassed, setMinTimePassed] = useState(false);
@@ -54,21 +56,27 @@ export default function App() {
   };
 
   return (
-    <div className="min-h-screen bg-[var(--bg-primary)] text-[var(--text-primary)] transition-colors duration-700 ease-in-out font-sans selection:bg-[var(--accent-gold)] selection:text-white">
+    <div className="site-canvas min-h-screen text-[var(--text-primary)] transition-colors duration-700 ease-in-out font-sans selection:bg-[var(--accent-gold)] selection:text-white">
       {loading && <LoadingScreen />}
 
       {!loading && (
         <>
-          <Header theme={theme} toggleTheme={toggleTheme} />
-          <main>
-            <Hero theme={theme} imageSrc={HERO_IMAGE} />
-            <Legacy />
-            <FeaturedResidences />
-            <Amenities />
-            <Gallery />
-            <Contact />
-          </main>
-          <Footer />
+
+          <div className="relative" style={{ zIndex: 10 }}>
+            <Header theme={theme} toggleTheme={toggleTheme} />
+            <main>
+              {/* Golden background decorative elements */}
+              <GoldenBackground />
+              <Hero theme={theme} imageSrc={HERO_IMAGE} />
+              <Legacy />
+              <FeaturedResidences />
+              <PrestigeStrip />
+              <Amenities />
+              <Gallery />
+              <Contact />
+            </main>
+            <Footer />
+          </div>
         </>
       )}
     </div>

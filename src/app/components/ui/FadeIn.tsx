@@ -17,7 +17,7 @@ export function FadeIn({
   fullWidth = false 
 }: FadeInProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-10% 0px" });
+  const isInView = useInView(ref, { margin: "-12% 0px -12% 0px" });
 
   const directionOffset = {
     up: { y: 40, x: 0 },
@@ -33,11 +33,17 @@ export function FadeIn({
       initial={{ 
         opacity: 0, 
         x: directionOffset[direction].x, 
-        y: directionOffset[direction].y 
+        y: directionOffset[direction].y,
+        scale: 0.96,
+        filter: "blur(8px)",
       }}
-      animate={isInView ? { opacity: 1, x: 0, y: 0 } : {}}
+      animate={
+        isInView
+          ? { opacity: 1, x: 0, y: 0, scale: 1, filter: "blur(0px)" }
+          : { opacity: 0, x: directionOffset[direction].x, y: directionOffset[direction].y, scale: 0.96, filter: "blur(8px)" }
+      }
       transition={{
-        duration: 0.8,
+        duration: 0.92,
         ease: [0.22, 1, 0.36, 1],
         delay: delay
       }}

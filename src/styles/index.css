@@ -2,10 +2,196 @@
 @import './tailwind.css';
 @import './theme.css';
 
-.custom-contrast-with-blur {
-    filter: contrast(1.2) brightness(0.8) !important;
+.site-canvas {
+  position: relative;
+  isolation: isolate;
+  background: var(--bg-primary);
 }
 
-.custom-scale-80p {
-    scale: 0.8 !important;
+.site-canvas::before {
+  content: "";
+  position: fixed;
+  inset: -20% -10%;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(65% 52% at 88% 6%, rgba(201, 169, 98, 0.14) 0%, transparent 72%),
+    radial-gradient(72% 58% at 10% 40%, rgba(228, 212, 165, 0.14) 0%, transparent 70%),
+    radial-gradient(52% 58% at 52% 92%, rgba(201, 169, 98, 0.11) 0%, transparent 74%);
+}
+
+.site-canvas::after {
+  content: "";
+  position: fixed;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background-image:
+    linear-gradient(140deg, transparent 0%, transparent 43%, var(--luxury-surface) 44%, transparent 46%, transparent 100%),
+    linear-gradient(30deg, transparent 0%, transparent 62%, var(--luxury-surface) 63%, transparent 64%, transparent 100%),
+    radial-gradient(circle at 10% 12%, var(--luxury-spot) 0%, transparent 32%),
+    radial-gradient(circle at 92% 84%, var(--luxury-spot) 0%, transparent 28%),
+    radial-gradient(var(--luxury-noise) 0.65px, transparent 0.65px);
+  background-size: auto, auto, auto, auto, 3px 3px;
+  opacity: 0.42;
+  mix-blend-mode: multiply;
+}
+
+:root[data-theme="dark"] .site-canvas::before {
+  opacity: 0.55;
+}
+
+:root[data-theme="dark"] .site-canvas::after {
+  opacity: 0.2;
+  mix-blend-mode: screen;
+}
+
+.section-shell {
+  position: relative;
+  isolation: isolate;
+  overflow: hidden;
+}
+
+.section-shell::before {
+  content: "";
+  position: absolute;
+  inset: 0;
+  z-index: 0;
+  pointer-events: none;
+  background:
+    radial-gradient(50% 65% at 100% 0%, var(--luxury-surface) 0%, transparent 74%),
+    radial-gradient(45% 56% at 0% 100%, var(--luxury-surface) 0%, transparent 72%);
+  opacity: 0.85;
+}
+
+.section-shell::after {
+  content: "";
+  position: absolute;
+  left: clamp(1.5rem, 7vw, 5rem);
+  right: clamp(1.5rem, 7vw, 5rem);
+  top: 0;
+  height: 1px;
+  z-index: 1;
+  pointer-events: none;
+  background: linear-gradient(90deg, transparent, var(--luxury-line) 20%, var(--luxury-line) 80%, transparent);
+}
+
+.section-shell-no-rule::after {
+  display: none;
+}
+
+.section-shell > * {
+  position: relative;
+  z-index: 2;
+}
+
+.luxury-card {
+  transition:
+    transform 780ms var(--luxury-ease),
+    box-shadow 780ms var(--luxury-ease),
+    border-color 780ms var(--luxury-ease);
+}
+
+.luxury-card:hover {
+  transform: translateY(-8px);
+  box-shadow: var(--luxury-shadow-soft);
+}
+
+.luxury-card-title {
+  position: relative;
+  display: inline-block;
+}
+
+.luxury-card-title::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -0.25rem;
+  width: 0;
+  height: 1px;
+  background: var(--accent-gold);
+  transition: width 640ms var(--luxury-ease);
+}
+
+.group:hover .luxury-card-title::after {
+  width: 100%;
+}
+
+.hero-scale-animation {
+  transform-origin: center center;
+  animation: heroScaleBreath 16s var(--luxury-ease) infinite alternate;
+  will-change: transform;
+}
+
+.hero-light-sweep {
+  animation: luxurySweep 7.5s var(--luxury-ease) infinite;
+}
+
+.hero-float {
+  animation: slowFloat 13s ease-in-out infinite;
+}
+
+.luxury-marquee-track {
+  display: flex;
+  min-width: max-content;
+  animation: marqueeShift 24s linear infinite;
+}
+
+@keyframes heroScaleBreath {
+  0% {
+    transform: scale(1.015);
+  }
+  50% {
+    transform: scale(1.065);
+  }
+  100% {
+    transform: scale(1.02);
+  }
+}
+
+@keyframes luxurySweep {
+  0% {
+    transform: translateX(-120%) skewX(-18deg);
+    opacity: 0;
+  }
+  18% {
+    opacity: 0.5;
+  }
+  48% {
+    opacity: 0.16;
+  }
+  100% {
+    transform: translateX(220%) skewX(-18deg);
+    opacity: 0;
+  }
+}
+
+@keyframes slowFloat {
+  0% {
+    transform: translateY(0px);
+  }
+  50% {
+    transform: translateY(-11px);
+  }
+  100% {
+    transform: translateY(0px);
+  }
+}
+
+@keyframes marqueeShift {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  .hero-scale-animation,
+  .hero-light-sweep,
+  .hero-float,
+  .luxury-marquee-track {
+    animation: none !important;
+  }
 }

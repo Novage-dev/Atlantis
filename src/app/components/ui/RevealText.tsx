@@ -11,7 +11,7 @@ interface RevealTextProps {
 
 export function RevealText({ text, delay = 0, className = "", stagger = 0.05 }: RevealTextProps) {
   const ref = useRef(null);
-  const isInView = useInView(ref, { once: true, margin: "-10%" });
+  const isInView = useInView(ref, { margin: "-12% 0px -12% 0px" });
   
   const words = text.split(" ");
 
@@ -22,9 +22,9 @@ export function RevealText({ text, delay = 0, className = "", stagger = 0.05 }: 
           <motion.span
             className="inline-block"
             initial={{ y: "100%", opacity: 0 }}
-            animate={isInView ? { y: 0, opacity: 1 } : {}}
+            animate={isInView ? { y: 0, opacity: 1 } : { y: "100%", opacity: 0 }}
             transition={{
-              duration: 0.8,
+              duration: 0.9,
               ease: [0.22, 1, 0.36, 1],
               delay: delay + i * stagger,
             }}
