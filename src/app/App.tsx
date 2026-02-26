@@ -13,7 +13,7 @@ import { PrestigeStrip } from "./components/PrestigeStrip";
 import { VirtualTour } from "./components/VirtualTour";
 
 export default function App() {
-  const [theme, setTheme] = useState<"dark" | "light">("dark");
+  const [theme, setTheme] = useState<"dark" | "light">("light");
 
   const [imageLoaded, setImageLoaded] = useState(false);
   const [minTimePassed, setMinTimePassed] = useState(false);
