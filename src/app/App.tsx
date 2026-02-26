@@ -10,6 +10,7 @@ import { Footer } from "./components/Footer";
 import { LoadingScreen } from "./components/Splash";
 import { GoldenBackground } from "./components/GoldenBackground";
 import { PrestigeStrip } from "./components/PrestigeStrip";
+import { VirtualTour } from "./components/VirtualTour";
 
 export default function App() {
   const [theme, setTheme] = useState<"dark" | "light">("dark");
@@ -74,6 +75,7 @@ export default function App() {
               <Amenities />
               <Gallery />
               <Contact />
+              <VirtualTour />
             </main>
             <Footer />
           </div>

@@ -1,1 +1,15 @@
 @import url('https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400&family=Inter:wght@200;300;400;500;600&display=swap');
+
+@font-face {
+  font-family: "Chaplin-Book";
+  src: local("Chaplin Book"), local("Chaplin-Book"), local("Chaplin");
+  font-style: normal;
+  font-weight: 400;
+}
+
+@font-face {
+  font-family: "Gravity";
+  src: local("Gravity"), local("Gravity Book"), local("Gravity-Regular");
+  font-style: normal;
+  font-weight: 400;
+}

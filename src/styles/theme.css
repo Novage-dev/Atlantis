@@ -3,6 +3,7 @@
 @theme {
   --font-serif: "Cormorant Garamond", serif;
   --font-sans: "Inter", sans-serif;
+  --font-description: "Chaplin-Book", "Gravity", "Cormorant Garamond", serif;
   
   --color-gold-muted: #C9A962;
   --color-gold-light: #E4D4A5;
@@ -53,10 +54,17 @@
     @apply font-sans antialiased transition-colors duration-700 ease-in-out;
     background-color: var(--bg-primary);
     color: var(--text-primary);
+    zoom: 0.8;
   }
 
   h1, h2, h3, h4, h5, h6 {
     @apply font-serif;
+  }
+
+  p,
+  li,
+  .description-text {
+    font-family: var(--font-description);
   }
 }
 
