@@ -2,6 +2,7 @@
 ![Atlantis Preview](./public/Meta.png)
 
 A high-end, ultra-minimal, and elegant luxury real estate website designed to showcase signature residences and amenities with a refined, editorial aesthetic. 
+
 Production-ready frontend project built for a real estate client.
 ---
 
@@ -16,7 +17,7 @@ Key aspects include a modular component architecture, advanced animations, and a
 ---
 
 ## **Live Demo**
-[View Live here](https://atlantis-realestate.vercel.app/)
+[Click here](https://atlantis-realestate.vercel.app/) to view live.
 
 ---
 
@@ -101,7 +102,7 @@ npm run dev
 
 Your website will be available at `http://localhost:5173` (Vite default port).
 
-### **4. Environment Variables
+### **4. Environment Variables**
 
 No environment variables required for this project.
 
