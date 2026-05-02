@@ -4,6 +4,7 @@
 A high-end, ultra-minimal, and elegant luxury real estate website designed to showcase signature residences and amenities with a refined, editorial aesthetic. 
 
 Production-ready frontend project built for a real estate client.
+
 ---
 
 ## Overview
